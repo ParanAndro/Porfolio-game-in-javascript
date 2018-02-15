@@ -49,7 +49,7 @@ var playerPointsElem = document.getElementById('js-playerPoints'),
 function newGame() {
   player.name = prompt('Please enter your name', 'imię gracza');
   if (player.name) {
-    player.score = computer.score = 0;
+    player.score = computer.score === 0;
     gameState = 'started';
     setGameElements();
     setGamePoints();
@@ -67,7 +67,6 @@ function playerPick(playerPick) {
     checkRoundWinner(playerPick, computerPick);
 }
 
-Math.floor(Math.random()*3);
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
     return possiblePicks[Math.floor(Math.random()*3)];
@@ -109,16 +108,14 @@ function setGamePoints() {
     computerPointsElem.innerHTML = computer.score;
 }
 
-var winnerSetPlayer = "You win set. Let's play again!";
-var winnerSetComputer = "Sorry, you lost set. Let's play again!";
 function endGame() {
-	if (player.score == 10) {
-		winnerSet = winnerSetPlayer;
+	if (player.score === 10) {
+		winnerSet = "You win set. Let's play again!";
 		gameState = 'ended';
 		setGameElements();
 	}
-	else if (computer.score == 10) {
-		winnerSet = winnerSetComputer;
+	else if (computer.score === 10) {
+		winnerSet = "Sorry, you lost set. Let's play again!";
 		gameState = 'ended';
 		setGameElements();
 	} 
