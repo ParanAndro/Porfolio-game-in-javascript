@@ -38,8 +38,8 @@ function setGameElements() {
         newGameElem.style.display = 'block';
         pickElem.style.display = 'none';
         resultsElem.style.display = 'none';
-  }
-}
+  };
+};
 setGameElements();
 
 var playerPointsElem = document.getElementById('js-playerPoints'),
@@ -49,14 +49,14 @@ var playerPointsElem = document.getElementById('js-playerPoints'),
 function newGame() {
   player.name = prompt('Please enter your name', 'imię gracza');
   if (player.name) {
-    player.score = computer.score === 0;
+    player.score = computer.score = 0;
     gameState = 'started';
     setGameElements();
     setGamePoints();
 
     playerNameElem.innerHTML = player.name;
-  }
-}
+  };
+};
 
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
@@ -65,12 +65,13 @@ function playerPick(playerPick) {
     computerPickElem.innerHTML = computerPick;
 
     checkRoundWinner(playerPick, computerPick);
-}
+};
 
+Math.floor(Math.random()*3);
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
     return possiblePicks[Math.floor(Math.random()*3)];
-}
+};
 
 var playerPickElem = document.getElementById('js-playerPick'),
     computerPickElem = document.getElementById('js-computerPick'),
@@ -90,7 +91,7 @@ function checkRoundWinner(playerPick, computerPick) {
         (computerPick == 'paper' &&  playerPick == 'rock')) {
 
         winnerIs = 'computer';
-    }
+    };
 
     if (winnerIs == 'player') {
         playerResultElem.innerHTML = "Win!";
@@ -101,22 +102,24 @@ function checkRoundWinner(playerPick, computerPick) {
     }
     setGamePoints();
     endGame();
-}
+};
 
 function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
-}
+};
 
+var winnerSetPlayer = "You win set. Let's play again!";
+var winnerSetComputer = "Sorry, you lost set. Let's play again!";
 function endGame() {
-	if (player.score === 10) {
-		winnerSet = "You win set. Let's play again!";
-		gameState = 'ended';
-		setGameElements();
-	}
-	else if (computer.score === 10) {
-		winnerSet = "Sorry, you lost set. Let's play again!";
-		gameState = 'ended';
-		setGameElements();
-	} 
-}
+    if (player.score == 10) {
+        winnerSet = winnerSetPlayer;
+        gameState = 'ended';
+        setGameElements();
+    }
+    else if (computer.score == 10) {
+        winnerSet = winnerSetComputer;
+        gameState = 'ended';
+        setGameElements();
+    };
+};
