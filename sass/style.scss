@@ -1,3 +1,42 @@
 .container {
 	padding: 30px;
 }
+
+.btn {
+	padding: 20px;
+	}
+.btn-default {
+	background-color: orange;
+}
+.rock {
+	background-color: #777;
+}
+
+.paper {
+	background-color: #5bc0de;
+}
+
+.scissors {
+	background-color: #d9534f;
+}
+.status {
+	margin: 25px;
+	font-size: 30px;
+}
+.line {
+	margin-top: 25px;
+}
+.name {
+	font-size: 25px;
+	font-weight: bold;
+	color: #0000FF;
+}
+.selection {
+	font-size: 20px;
+	font-weight: bold;
+}
+.score {
+	font-size: 15px;
+	color: red;
+	font-weight: bold;
+}
