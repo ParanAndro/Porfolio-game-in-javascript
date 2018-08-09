@@ -116,10 +116,20 @@ function endGame() {
         winnerSet = winnerSetPlayer;
         gameState = 'ended';
         setGameElements();
+        resetGame();
     }
     else if (computer.score == 10) {
         winnerSet = winnerSetComputer;
         gameState = 'ended';
         setGameElements();
+        resetGame();
     };
 };
+
+function resetGame(){
+    playerResultElem.innerHTML = "Player selection";
+    playerPickElem.innerHTML = "Player selection";
+    computerPickElem.innerHTML = "Computer Selection";
+    computerResultElem.innerHTML = "Computer score";
+    playerResultElem.innerHTML = "Player score";
+}
